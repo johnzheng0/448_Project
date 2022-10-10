@@ -1,19 +1,19 @@
 # EECS448_Project
 
 ## Team 17 Members:
-Nikhil: n210s707@ku.edu
-John: j596z809@ku.edu 
-Robert: r283f324@ku.edu 
-Devin: d990s115@ku.edu 
-Riley: r427s146@ku.edu
-Aiden: a542f781@ku.edu 
+Nikhil: n210s707@ku.edu <br />
+John: j596z809@ku.edu <br />
+Robert: r283f324@ku.edu <br />
+Devin: d990s115@ku.edu <br />
+Riley: r427s146@ku.edu <br />
+Aiden: a542f781@ku.edu <br />
 
 ## Prototype [User Interface]
 Figma Prototype: https://www.figma.com/file/NZh61J6d00s0isLtYBOqr1/UI-Prototype?node-id=0%3A1
 
 ## Index: 
-  Requirements
-    UI Prototype
-    SRS (Software-Requirement Specifications)
-    SS (Supplementary Specifications)
-    UCS (Use Case Specifications)
+  Requirements <br />
+    UI Prototype <br />
+    SRS (Software-Requirement Specifications) <br />
+    SS (Supplementary Specifications) <br />
+    UCS (Use Case Specifications) <br />
