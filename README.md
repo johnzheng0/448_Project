@@ -12,8 +12,8 @@ Aiden: a542f781@ku.edu <br />
 Figma Prototype: https://www.figma.com/file/NZh61J6d00s0isLtYBOqr1/UI-Prototype?node-id=0%3A1
 
 ## Index: 
-  Requirements <br />
-    UI Prototype <br />
-    SRS (Software-Requirement Specifications) <br />
-    SS (Supplementary Specifications) <br />
-    UCS (Use Case Specifications) <br />
+- Requirements <br />
+  - UI Prototype <br />
+  - SRS (Software-Requirement Specifications) <br />
+  - SS (Supplementary Specifications) <br />
+  - UCS (Use Case Specifications) <br />
