@@ -13,7 +13,7 @@ Figma Prototype: https://www.figma.com/file/NZh61J6d00s0isLtYBOqr1/UI-Prototype?
 
 ## Index: 
 - Requirements <br />
-  - UI Prototype <br />
-  - SRS (Software-Requirement Specifications) <br />
-  - SS (Supplementary Specifications) <br />
-  - UCS (Use Case Specifications) <br />
+  - [UI Prototype](https://github.com/johnzheng0/448_Project/tree/main/Documents_REQ/UI_Prototype) (User Interface Prototype)<br />
+  - [SRS](https://github.com/johnzheng0/448_Project/tree/main/Documents_REQ/Software_Requirements_Specifications) (Software-Requirement Specifications) <br />
+  - [SS](https://github.com/johnzheng0/448_Project/tree/main/Documents_REQ/Supplementary_Specifications) (Supplementary Specifications) <br />
+  - [UCS](https://github.com/johnzheng0/448_Project/tree/main/Documents_REQ/Use_Case_Specifications) (Use Case Specifications) <br />
