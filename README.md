@@ -10,7 +10,7 @@ Aiden: a542f781@ku.edu <br />
 
 ## Prototype [User Interface]
 Figma Prototype: https://www.figma.com/file/NZh61J6d00s0isLtYBOqr1/UI-Prototype?node-id=0%3A1
-(3 Windows: 1 Primary (Main Menu), 2 Secondary (Options, Credits))
+<br />(3 Windows: 1 Primary (Main Menu), 2 Secondary (Options, Credits))
 
 ## Index: 
 - Requirements <br />
