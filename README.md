@@ -14,6 +14,9 @@ Aiden: a542f781@ku.edu <br />
   - [SRS](https://github.com/johnzheng0/448_Project/tree/main/Documents_REQ/Software_Requirements_Specifications) (Software-Requirement Specifications) <br />
   - [SS](https://github.com/johnzheng0/448_Project/tree/main/Documents_REQ/Supplementary_Specifications) (Supplementary Specifications) <br />
   - [UCS](https://github.com/johnzheng0/448_Project/tree/main/Documents_REQ/Use_Case_Specifications) (Use Case Specifications) <br />
+- Architectural Design <br />
+  - [SAD](https://github.com/johnzheng0/448_Project/tree/main/Documents_AD/Software_Architecture_Document) (Software Architecture Document) <br />
+  - [UCEA](https://github.com/johnzheng0/448_Project/tree/main/Documents_AD/Use-Case-Realization_Specification) (Use-Case-Realization Specification) <br />
 
 ## Prototype [User Interface]
 Figma Prototype: https://www.figma.com/file/NZh61J6d00s0isLtYBOqr1/UI-Prototype?node-id=0%3A1
