@@ -10,7 +10,7 @@ Aiden: a542f781@ku.edu <br />
 
 ## Index: 
 - Profile 
-  - [Vision Statement](https://github.com/johnzheng0/448_Project/blob/main/Dumb%20Dino%20Project.pdf) (Profiles) <br /><br />
+  - [Vision Statement](https://github.com/johnzheng0/448_Project/blob/main/Dumb%20Dino%20Project.pdf) (Roles and Responsibilities) <br /><br />
 - Requirements <br />
   - [UI Prototype](https://github.com/johnzheng0/448_Project/tree/main/Documents_REQ/UI_Prototype) (User Interface Prototype)<br />
   - [SRS](https://github.com/johnzheng0/448_Project/tree/main/Documents_REQ/Software_Requirements_Specifications) (Software-Requirement Specifications) <br />
