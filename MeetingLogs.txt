@@ -1,0 +1,50 @@
+                                                           ---------------------------------------------------------
+                                                                               Meeting Schedules
+                                                           ---------------------------------------------------------
+
+Meeting date: 09/09/22 
+Time: 1:00 PM 
+Purpose: Team name; Team roles; Introduction; Discuss our idea for a project
+Who: 
+In Voice Call: Devin, John, Robert, Riley
+In Text: Nikhil, Aiden
+
+
+Meeting date: 09/11/22 
+Time: 4:00 PM 
+Purpose: Discussing in person meeting schedules; Project idea finalization (Game: Square off) ; Language decision (C++ or Python); Cover page; Deliverable finalization; 
+Who: 
+In Voice Call: Nikhil, John, Riley
+In Text: Robert, Devin, Aiden
+
+
+Meeting date: 09/13/2022
+Time: 4:00 P.M. 
+Purpose: Rough draft of vision statement. Decided language: Python; Discuss the game:
+Split Screen support (One computer game) 
+Board Moves: WASD and Arrow keys 
+Story Mode (in discussion) 
+Who: 
+In Person: Devin, Riley, John, and Nikhil
+In Text: Robert, Aiden 
+
+
+Meeting date: 09/16/2022
+Time: 2:00 PM
+Purpose: Perfecting our vision statement. Discussed how we could improve the game: adding power ups; discussed name: Cuadrado
+Who:
+In-person: Everybody 
+
+
+Meeting date: 09/27/2022
+Time: 3:45 PM
+Purpose: Compiling the things needed to be made for the week. Deciding on the format of each task.
+Who:
+In-person: Devin, Riley
+
+
+Meeting date: 09/30/2022
+Time: 1:00 P.M.
+Purpose: Build software requirements specifications (functional requirements), build use case specifications (drawing the use case model), and finally, build non-functional requirements and constraints 
+Who: 
+In-person: Robert, Devin, John, Nikhil
