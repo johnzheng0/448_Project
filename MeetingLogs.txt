@@ -48,3 +48,10 @@ Time: 1:00 P.M.
 Purpose: Build software requirements specifications (functional requirements), build use case specifications (drawing the use case model), and finally, build non-functional requirements and constraints 
 Who: 
 In-person: Robert, Devin, John, Nikhil
+
+
+Meeting date: 10/21/2022
+Time: 3:00 P.M.
+Purpose: Build software architecture documents, build use case specifications, assigning team members of task on those respective documents
+Who: 
+In-person: Robert, Devin, Nikhil
