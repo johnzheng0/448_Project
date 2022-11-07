@@ -19,7 +19,8 @@ Aiden: a542f781@ku.edu <br />
 - Architectural Design <br />
   - [SAD](https://github.com/johnzheng0/448_Project/tree/main/Documents_AD/Software_Architecture_Document) (Software Architecture Document) <br />
   - [UCEA](https://github.com/johnzheng0/448_Project/tree/main/Documents_AD/Use-Case-Realization_Specification) (Use-Case-Realization Specification) <br /><br />
-- ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `NEW`
+
+![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `NEW`
 - Projects Measurements <br />
   -  [ITPLN](https://github.com/johnzheng0/448_Project/tree/main/Documents_PM/Iteration_Plan) <br />
 
