@@ -19,7 +19,8 @@ Aiden: a542f781@ku.edu <br />
 - Architectural Design <br />
   - [SAD](https://github.com/johnzheng0/448_Project/tree/main/Documents_AD/Software_Architecture_Document) (Software Architecture Document) <br />
   - [UCEA](https://github.com/johnzheng0/448_Project/tree/main/Documents_AD/Use-Case-Realization_Specification) (Use-Case-Realization Specification) <br /><br />
-<span style="color:red">NEW:</span> - Projects Measurements <br />
+<span style="color:red">NEW:</span> <br>
+- Projects Measurements <br />
   -  [ITPLN](https://github.com/johnzheng0/448_Project/tree/main/Documents_PM/Iteration_Plan) <br />
 
 ## Prototype [User Interface]
