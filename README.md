@@ -19,13 +19,15 @@ Aiden: a542f781@ku.edu <br />
 - Architectural Design <br />
   - [SAD](https://github.com/johnzheng0/448_Project/tree/main/Documents_AD/Software_Architecture_Document) (Software Architecture Document) <br />
   - [UCEA](https://github.com/johnzheng0/448_Project/tree/main/Documents_AD/Use-Case-Realization_Specification) (Use-Case-Realization Specification) <br />
+
 ```diff
-- NEW:
-  - Projects Measurements <br />
-    -  [ITPLN](https://github.com/johnzheng0/448_Project/tree/main/Documents_PM/Iteration_Plan) <br /> <br/>
+- NEW
 ```
 - Projects Measurements <br />
-  -  [ITPLN](https://github.com/johnzheng0/448_Project/tree/main/Documents_PM/Iteration_Plan) <br /> <br/>
+  -  [ITPLN](https://github.com/johnzheng0/448_Project/tree/main/Documents_PM/Iteration_Plan) <br /> 
+```diff
+- END
+```
 ## Prototype [User Interface]
 Figma Prototype: https://www.figma.com/file/NZh61J6d00s0isLtYBOqr1/UI-Prototype?node-id=0%3A1
 <br />3 Windows: Main Menu (Primary); Options, Credits (Secondary)
