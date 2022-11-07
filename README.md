@@ -25,7 +25,7 @@ Aiden: a542f781@ku.edu <br />
 ```
 
 - Projects Measurements <br />
-  -  [ITPLN](https://github.com/johnzheng0/448_Project/tree/main/Documents_PM/Iteration_Plan) <br /> <br /> 
+  -  [ITPLN](https://github.com/johnzheng0/448_Project/tree/main/Documents_PM/Iteration_Plan) <br />
 
 -----------------------------------------------------------------------------------------------------------------<br /> 
 
