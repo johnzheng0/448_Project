@@ -55,3 +55,17 @@ Time: 3:00 P.M.
 Purpose: Build software architecture documents, build use case specifications, assigning team members of task on those respective documents
 Who: 
 In-person: Robert, Devin, Nikhil
+
+
+Meeting date: 11/01/2022
+Time: 4:00 P.M.
+Purpose: Build iteration plan documents
+Who: 
+In-person: Devin, John, Riley
+
+
+Meeting date: 11/11/2022
+Time: 1:00 P.M.
+Purpose: Coding prototype for various functionality (UI, Movement)
+Who: 
+In-person: Robert, Devin, Riley, John
