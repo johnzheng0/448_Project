@@ -27,9 +27,11 @@ func _ready():
 
 
 func _on_SettingsButton_pressed():
+	SoundController.playSound("res://Sound/click.mp3")
 	get_tree().change_scene("res://Scenes/Settings.tscn")
 
 
 func _on_NewGameButton_pressed():
+	SoundController.playSound("res://Sound/click.mp3")
 	get_tree().change_scene("res://Scenes/Board.tscn")
 	
