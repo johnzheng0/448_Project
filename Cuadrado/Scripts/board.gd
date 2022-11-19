@@ -84,10 +84,6 @@ func _ready():
 	timernode.setdifficulty(difficulty)
 	
 	MusicController.playMusic("res://Sound/musicGame.mp3")
-	if (read("SFX.cfg") == "on"):
-		$SFX.volume_db = 0
-	else:
-		$SFX.volume_db = -80
 	
 	generateGoal()
 	rearrange()
@@ -167,9 +163,9 @@ func delete_level():
 #		if(n != get_node(".").get_child(0) && n != get_node(".").get_child(1) && n != get_node(".").get_child(2)):
 #			get_node(".").remove_child(n)
 #			n.queue_free()
-	for n in range (4,get_node(".").get_child_count()-1):
-		get_node(".").remove_child(get_node(".").get_child(4))
-		get_node(".").get_child(4).queue_free()
+	for n in range (2,get_node(".").get_child_count()-1):
+		get_node(".").remove_child(get_node(".").get_child(2))
+		get_node(".").get_child(2).queue_free()
 		
 # Function for checking input	
 func check_input():
@@ -366,11 +362,11 @@ func rearrange():
 # Function to reset timer
 func resetTimer():
 	progress = 0
-	var node = get_node(".").get_child(2)
+	var node = get_node(".").get_child(1)
 	node.setprogressvalue(0)
 	
 func checkTimer():
-	var node = get_node(".").get_child(2)
+	var node = get_node(".").get_child(1)
 	if(node.getprogressvalue() == 100):
 		var losenode = lose.instance()
 		add_child(losenode)
