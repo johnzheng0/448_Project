@@ -27,17 +27,19 @@ func accept(board):
 		generateGoal()
 	elif (!self.get_child(board).isFrozen()):
 		SoundController.playSound("res://Sound/wrong.mp3")
+		# Player frozen
 		self.get_child(board).freeze()
+		# 1 second timer
 		var t = Timer.new()
 		t.set_wait_time(1	)
 		t.set_one_shot(true)
 		self.add_child(t)
-		var node = self.get_child(self.get_child_count()-1)
 		t.start()
 		yield(t, "timeout")
 		var tNode = self.get_child(self.get_child_count()-1)
 		self.remove_child(tNode)
 		tNode.queue_free()
+		# Player unfreezed
 		self.get_child(board).unfreeze()
 
 
