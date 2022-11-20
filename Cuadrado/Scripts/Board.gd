@@ -1,30 +1,12 @@
 extends Node2D
 
-#write to filename
-func write(fileName,content):
-	var file = File.new()
-	file.open("user://"+fileName, File.WRITE)
-	file.store_string(content)
-	file.close()
-
-#return content of filename
-func read(fileName):
-	var file = File.new()
-	file.open("user://"+fileName, File.READ)
-	var content = file.get_as_text()
-	file.close()
-	return content
-
-# Customizable level data
-export (int) var grid_width = 5
-export (int) var grid_height = 5
-export (int) var x_start = 460
+export (int) var x_start = 45
 export (int) var y_start = 170
 export (int) var x_off = 90
-export (int) var y_off = 95
-export (int) var difficulty = int(read("DIFF.cfg"))
+export (int) var y_off = 90
 
-# Loading tiles to be used
+var random = RandomNumberGenerator.new()
+
 var tiles = [
 	preload("res://Scenes/BlankTile.tscn"),
 	preload("res://Scenes/TileTopRight.tscn"),
@@ -35,26 +17,6 @@ var tiles = [
 	preload("res://Scenes/TileVertical.tscn")
 ]
 
-
-# Loading background
-var bg = preload("res://Scenes/bg.tscn")
-
-# Loading point counter
-var counter = preload("res://Scenes/points.tscn")
-
-# Loading timer
-var timer = preload("res://Scenes/TIme.tscn")
-
-# Alert
-var alert = preload("res://Scenes/Alert.tscn")
-
-# Lose Screen
-var lose = preload("res://Scenes/LoseScreen.tscn")
-
-
-# Random Number Generator
-var random = RandomNumberGenerator.new()
-
 # Initial grid
 var level_grid = [
 	[0, 1, 1, 1, 1],
@@ -64,55 +26,36 @@ var level_grid = [
 	[2, 3, 4, 5, 6]
 ]
 
-# Coordinate for blank box
-var blankboxposition
-var points = 0
-var goal = '1A'
-var progress = 0
-var state = 0
-
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	var bgnode = bg.instance()
-	add_child(bgnode)
-	bgnode.position = Vector2(0,0)
-	bgnode.z_index = 0
-	
-	var timernode = timer.instance()
-	add_child(timernode)
-	timernode.position = Vector2(910, 590)
-	timernode.z_index = 1
-	timernode.setdifficulty(difficulty)
-	
-	MusicController.playMusic("res://Sound/musicGame.mp3")
-	
-	generateGoal()
 	rearrange()
 	draw_level()
-	
-	
-# Check for input every frame
-func _process(delta):
-	if(state == 0):
-		check_input()
-		checkTimer()
-	
-# Convert grid coordinates to pixel values
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+var blankboxposition
+#var state = 0
+#
+#func _process(delta):
+#	if(state == 0):
+#		check_input()
+#	check_input()
+		
+		
+
 func grid_to_pixel(x, y):
 	return Vector2(x * x_off + x_start, y * y_off + y_start)	
+#	return Vector2(x * x_off + x_off * 0.5, y * y_off + y_off * 0.5)
 
-# Draw the level as pixels
 func draw_level():
 	delete_level()
 	
-	var counternode = counter.instance()
-	add_child(counternode)
-	counternode.position = Vector2(0,0)
-	counternode.updatePointsAndGoal(points, goal)
-	counternode.z_index = 1
-	
-	
-	for i in range(grid_width):
-		for j in range(grid_height):
+	for i in range(level_grid.size()):
+		for j in range(level_grid[0].size()):
 			if (level_grid[i][j] == 0):
 				var tile = tiles[0].instance()
 				add_child(tile)
@@ -163,12 +106,37 @@ func delete_level():
 #		if(n != get_node(".").get_child(0) && n != get_node(".").get_child(1) && n != get_node(".").get_child(2)):
 #			get_node(".").remove_child(n)
 #			n.queue_free()
-	for n in range (2,get_node(".").get_child_count()-1):
-		get_node(".").remove_child(get_node(".").get_child(2))
-		get_node(".").get_child(2).queue_free()
-		
-# Function for checking input	
-func check_input():
+	for n in range (0,get_node(".").get_child_count()-1):
+		get_node(".").remove_child(get_node(".").get_child(0))
+		get_node(".").get_child(0).queue_free()
+
+func move(dir):
+	if (dir != Vector2(0, 0)):
+		var target = Vector2(blankboxposition[0] + dir[0], blankboxposition[1] + dir[1])
+		if(target[0] == -1 or target[0] == 5 or target[1] == -1 or target[1] == 5):
+			return
+		else:
+			SoundController.playSound("res://Sound/slide.mp3")
+			var target_value = level_grid[target[0]][target[1]]
+			level_grid[target[0]][target[1]] = 0
+			level_grid[blankboxposition[0]][blankboxposition[1]] = target_value
+			blankboxposition[0] = target[0]
+			blankboxposition[1] = target[1]
+			draw_level()
+
+func moveRight():
+	move(Vector2(-1, 0))
+
+func moveLeft():
+	move(Vector2(1, 0))
+	
+func moveUp():
+	move(Vector2(0, 1))
+	
+func moveDown():
+	move(Vector2(0, -1))
+
+func check_inputs():
 	# Calculate the direction the player is trying to go
 	var dir = Vector2(0, 0)
 	if (Input.is_action_just_pressed("ui_right")):
@@ -180,19 +148,18 @@ func check_input():
 	elif (Input.is_action_just_pressed("ui_down")):
 		dir = Vector2(0, -1)
 	elif (Input.is_action_just_pressed("ui_accept")):
-		var win = checkWinCondition(goal[0], goal[1])
+		var win = checkWinCondition('A','1')
 		if(win):
 			SoundController.playSound("res://Sound/correct.mp3")
-			points += 1
-			generateGoal()
-			resetTimer()
+#			points += 1
+#			generateGoal()
 			rearrange()
 			draw_level()
 		else:
 			SoundController.playSound("res://Sound/wrong.mp3")
-			var alertnode = alert.instance()
-			add_child(alertnode)
-			alertnode.z_index = 3
+#			var alertnode = alert.instance()
+#			add_child(alertnode)
+#			alertnode.z_index = 3
 		
 	# Move the player to the new position
 	if (dir != Vector2(0, 0)):
@@ -200,7 +167,7 @@ func check_input():
 		if(target[0] == -1 or target[0] == 5 or target[1] == -1 or target[1] == 5):
 			return
 		else:
-			SoundController.playSound("res://Sound/swoosh.mp3")
+			SoundController.playSound("res://Sound/slide.mp3")
 			var target_value = level_grid[target[0]][target[1]]
 			level_grid[target[0]][target[1]] = 0
 			level_grid[blankboxposition[0]][blankboxposition[1]] = target_value
@@ -210,28 +177,23 @@ func check_input():
 		
 	# Set direction back to nothing
 	dir = Vector2(0, 0)
-	
-	
-# Function to generate goal
-func generateGoal():
-	random.randomize()
-	var number = random.randi_range(1,6)
-	random.randomize()
-	var letter = random.randi_range(1,5)
-	match letter:
-		1: 
-			letter = 'A'
-		2:
-			letter = 'B'
-		3:
-			letter = 'C'
-		4:
-			letter = 'D'
-		5:
-			letter = 'E'
-	goal = str(number) + letter	
 
-# Function to check win condition
+func rearrange():
+	for i in range(1000):
+		random.randomize()
+		var x1 = random.randi_range(0, 4)
+		random.randomize()
+		var y1 = random.randi_range(0, 4)
+		random.randomize()
+		var x2 = random.randi_range(0, 4)
+		random.randomize()
+		var y2 = random.randi_range(0, 4)
+
+		var target = level_grid[x2][y2]
+
+		level_grid[x2][y2] = level_grid[x1][y1]
+		level_grid[x1][y1] = target
+
 func checkWinCondition(goalNumber, goalLetter):
 	
 	#initialize variable coordinates for runner
@@ -338,38 +300,3 @@ func checkWinCondition(goalNumber, goalLetter):
 	
 	#return endState which is if win condition is met
 	return endState
-	
-# Function for generating new board
-func switch():
-	random.randomize()
-	var x1 = random.randi_range(0, 4)
-	random.randomize()
-	var y1 = random.randi_range(0, 4)
-	random.randomize()
-	var x2 = random.randi_range(0, 4)
-	random.randomize()
-	var y2 = random.randi_range(0, 4)
-	
-	var target = level_grid[x2][y2]
-	
-	level_grid[x2][y2] = level_grid[x1][y1]
-	level_grid[x1][y1] = target
-	
-func rearrange():
-	for i in range(1000):
-		switch()
-		
-# Function to reset timer
-func resetTimer():
-	progress = 0
-	var node = get_node(".").get_child(1)
-	node.setprogressvalue(0)
-	
-func checkTimer():
-	var node = get_node(".").get_child(1)
-	if(node.getprogressvalue() == 100):
-		var losenode = lose.instance()
-		add_child(losenode)
-		losenode.position = Vector2(0,0)
-		losenode.z_index = 4
-		state = 1

@@ -33,5 +33,10 @@ func _on_SettingsButton_pressed():
 
 func _on_NewGameButton_pressed():
 	SoundController.playSound("res://Sound/click.mp3")
-	get_tree().change_scene("res://Scenes/Board.tscn")
+	get_tree().change_scene("res://Scenes/GameTimeAttack.tscn")
+	
+
+func _on_AIButton_pressed():
+	SoundController.playSound("res://Sound/click.mp3")
+	get_tree().change_scene("res://Scenes/GameVersus.tscn")
 	

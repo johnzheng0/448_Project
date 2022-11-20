@@ -20,5 +20,6 @@ margin_top = 355.0
 margin_right = 850.0
 margin_bottom = 455.0
 texture_normal = ExtResource( 1 )
+
 [connection signal="pressed" from="playagain" to="." method="_on_playagain_pressed"]
 [connection signal="pressed" from="exitgame" to="." method="_on_exitgame_pressed"]

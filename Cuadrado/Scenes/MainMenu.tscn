@@ -40,9 +40,6 @@ margin_bottom = 620.0
 rect_scale = Vector2( 0.667, 0.6 )
 texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SettingsButton" type="TextureButton" parent="."]
 margin_top = 561.0
@@ -57,4 +54,5 @@ stream = ExtResource( 9 )
 volume_db = 1.0
 
 [connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="AIButton" to="." method="_on_AIButton_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_SettingsButton_pressed"]

@@ -26,6 +26,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
+
 func playSound(fileLocation):
 	if (read("SFX.cfg") == "on"):
 		$Sound.stream = load(fileLocation)
