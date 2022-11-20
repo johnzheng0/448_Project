@@ -12,20 +12,34 @@ func _ready():
 # Variables keep track of player scores and the goal
 var scores = [0,0]
 var goal = "1A"
+var tokens = ['A','B','C','D','E']
 
 # Function that checks if the player got the point
 func accept(board):
-	if (get_node(".").get_child(board).checkWinCondition(goal[0],goal[1])):
+	if (self.get_child(board).checkWinCondition(goal[0],goal[1])):
+		SoundController.playSound("res://Sound/correct.mp3")
 		scores[board] += 1
 		$Score.text = "Score: " + str(scores)
-		generateGoal()
 		$BoardP1.rearrange()
 		$BoardP2.rearrange()
 		$BoardP1.draw_level()
 		$BoardP2.draw_level()
-		
-	else:
-		print("wrong")
+		generateGoal()
+	elif (!self.get_child(board).isFrozen()):
+		SoundController.playSound("res://Sound/wrong.mp3")
+		self.get_child(board).freeze()
+		var t = Timer.new()
+		t.set_wait_time(1	)
+		t.set_one_shot(true)
+		self.add_child(t)
+		var node = self.get_child(self.get_child_count()-1)
+		t.start()
+		yield(t, "timeout")
+		var tNode = self.get_child(self.get_child_count()-1)
+		self.remove_child(tNode)
+		tNode.queue_free()
+		self.get_child(board).unfreeze()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -55,17 +69,19 @@ func generateGoal():
 	random.randomize()
 	var number = random.randi_range(1,6)
 	random.randomize()
-	var letter = random.randi_range(1,5)
-	match letter:
-		1: 
-			letter = 'A'
-		2:
-			letter = 'B'
-		3:
-			letter = 'C'
-		4:
-			letter = 'D'
-		5:
-			letter = 'E'
-	goal = str(number) + letter
-	$Goal.text = "Goal: " + goal
+	var letter = random.randi_range(0,tokens.size()-1)
+#	match letter:
+#		1: 
+#			letter = 'A'
+#		2:
+#			letter = 'B'
+#		3:
+#			letter = 'C'
+#		4:
+#			letter = 'D'
+#		5:
+#			letter = 'E'
+	letter = tokens.pop_at(letter)
+	goal = str(number) + str(letter)
+	$Goal.text = "Goal: " + goal + "\n" + str(tokens)
+

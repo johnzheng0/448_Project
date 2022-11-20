@@ -164,8 +164,9 @@ func delete_level():
 #			get_node(".").remove_child(n)
 #			n.queue_free()
 	for n in range (2,get_node(".").get_child_count()-1):
-		get_node(".").remove_child(get_node(".").get_child(2))
-		get_node(".").get_child(2).queue_free()
+		var removedNode = self.get_child(2)
+		get_node(".").remove_child(removedNode)
+		removedNode.queue_free()
 		
 # Function for checking input	
 func check_input():

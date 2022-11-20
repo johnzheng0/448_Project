@@ -26,11 +26,16 @@ func _ready():
 #func _process(delta):
 #	pass
 
+var selector = 0
 
 func playSound(fileLocation):
 	if (read("SFX.cfg") == "on"):
-		$Sound.stream = load(fileLocation)
-		$Sound.play()
+		get_node(".").get_child(selector).stream = load(fileLocation)
+		get_node(".").get_child(selector).play()
+		selector += 1
+		if (selector == get_node(".").get_child_count()):
+			selector = 0
 
 func stopSound():
-	$Sound.stop()
+	for n in get_node(".").get_children():
+		n.stop()
