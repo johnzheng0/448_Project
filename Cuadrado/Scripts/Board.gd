@@ -158,6 +158,7 @@ func rearrange():
 
 		level_grid[x2][y2] = level_grid[x1][y1]
 		level_grid[x1][y1] = target
+	draw_level()
 
 # Function to check if a win condition has been met
 func checkWinCondition(goalNumber, goalLetter):

@@ -22,8 +22,6 @@ func accept(board):
 		$Score.text = "Score: " + str(scores)
 		$BoardP1.rearrange()
 		$BoardP2.rearrange()
-		$BoardP1.draw_level()
-		$BoardP2.draw_level()
 		generateGoal()
 	elif (!self.get_child(board).isFrozen()):
 		SoundController.playSound("res://Sound/wrong.mp3")
