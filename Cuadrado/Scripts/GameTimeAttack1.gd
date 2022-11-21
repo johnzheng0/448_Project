@@ -83,7 +83,6 @@ func _process(delta):
 # Function for checking input	
 func check_input():
 	if (Input.is_action_just_pressed("ui_right")):
-		print(self.get_children())
 		$Board.moveRight()
 	elif (Input.is_action_just_pressed("ui_left")):
 		$Board.moveLeft()

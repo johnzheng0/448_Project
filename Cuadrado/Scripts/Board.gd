@@ -47,10 +47,11 @@ var freeze = 0
 		
 		
 
+# Function that puts the tiles on the grid
 func grid_to_pixel(x, y):
 	return Vector2(x * x_off + x_start, y * y_off + y_start)	
-#	return Vector2(x * x_off + x_off * 0.5, y * y_off + y_off * 0.5)
 
+# Function that draws the level grid
 func draw_level():
 	delete_level()
 	
@@ -136,10 +137,25 @@ func moveUp():
 func moveDown():
 	move(Vector2(0, -1))
 
-func freeze():
+# Function that freezes the board
+func freeze(n=0):
+	# Board frozen
 	freeze = 1
-func unfreeze():
-	freeze = 0
+	if (n > 0):
+		# n second timer
+		var t = Timer.new()
+		t.set_wait_time(n)
+		t.set_one_shot(true)
+		self.add_child(t)
+		t.start()
+		yield(t, "timeout")
+		var tNode = self.get_child(self.get_child_count()-1)
+		self.remove_child(tNode)
+		tNode.queue_free()
+		# Board unfreezes
+		freeze = 0
+
+# Function that returns if board is frozen
 func isFrozen():
 	return (freeze == 1)
 
