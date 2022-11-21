@@ -69,3 +69,10 @@ Time: 1:00 P.M.
 Purpose: Coding prototype for various functionality (UI, Movement)
 Who: 
 In-person: Robert, Devin, Riley, John
+
+Meeting date: 11/18/2022
+Time: 4:00 P.M.
+Purpose: Document Discussion and Gameplay check
+Who: 
+In-person: Devin, John
+Voice Call: Nikhil
