@@ -163,7 +163,7 @@ func delete_level():
 #		if(n != get_node(".").get_child(0) && n != get_node(".").get_child(1) && n != get_node(".").get_child(2)):
 #			get_node(".").remove_child(n)
 #			n.queue_free()
-	for n in range (2,get_node(".").get_child_count()-1):
+	for n in range (2,get_node(".").get_child_count()):
 		var removedNode = self.get_child(2)
 		get_node(".").remove_child(removedNode)
 		removedNode.queue_free()
