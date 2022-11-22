@@ -252,3 +252,4 @@ func checkWinCondition(goalNumber, goalLetter):
 	
 	#return endState which is if win condition is met
 	return endState
+	

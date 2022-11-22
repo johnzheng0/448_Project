@@ -83,6 +83,10 @@ p2_accept={
  ]
 }
 
+[mono]
+
+project/assembly_name="Cuadrado_New"
+
 [physics]
 
 common/enable_pause_aware_picking=true

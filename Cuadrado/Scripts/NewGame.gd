@@ -55,9 +55,6 @@ func check_input():
 		else:
 			SoundController.playSound("res://Sound/wrong.mp3")
 			Fail._fail()
-#			var alertnode = alert.instance()
-#			add_child(alertnode)
-#			alertnode.z_index = 3
 	
 	
 # Function to generate goal

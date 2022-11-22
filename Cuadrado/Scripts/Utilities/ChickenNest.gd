@@ -79,3 +79,19 @@ func _change_goal(new_goal: String) -> void:
 	_change_state(0)
 	current_goal = new_goal
 	_change_state(1)
+	
+func _delete_nest(nest: String) -> void:
+	var deleted_nest = ''
+	match nest:
+		"A":
+			deleted_nest = nestA
+		"B":
+			deleted_nest = nestB
+		"C":
+			deleted_nest = nestC
+		"D":
+			deleted_nest = nestD
+		"E":
+			deleted_nest = nestE
+			
+	remove_child(deleted_nest)
