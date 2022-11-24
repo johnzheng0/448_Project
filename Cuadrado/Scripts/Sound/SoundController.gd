@@ -6,18 +6,18 @@ func playMusic(fileLocation):
 		$Music.stream = load(fileLocation)
 		$Music.play()
 
+func volumeMusic(vol):
+	$Music.volume_db = vol
+
 func stopMusic():
 	$Music.stop()
 
 var selector = 1
 func playSound(fileLocation):
 	if (Global.read("SFX") == "1"):
-		get_node(".").get_child(selector).stream = load(fileLocation)
-		get_node(".").get_child(selector).play()
-		selector += 1
-		if (selector == get_node(".").get_child_count()):
-			selector = 1
-
-func stopSound():
-	for n in get_node(".").get_children():
-		n.stop()
+		var sound = AudioStreamPlayer.new()
+		add_child(sound)
+		sound.stream = load(fileLocation)
+		sound.play()
+		yield(sound, "finished")
+		sound.queue_free()

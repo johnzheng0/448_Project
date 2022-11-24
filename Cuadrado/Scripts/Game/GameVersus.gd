@@ -9,6 +9,7 @@ var state = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SoundController.volumeMusic(-20)
 	SoundController.playMusic("res://Sound/musicGame.mp3")
 	generateGoal()
 	$BoardP1.goalUpdate(goal)
@@ -31,9 +32,10 @@ func accept(board):
 					lose()
 				else:
 					generateGoal()
+					$Fail._failRight()
 					$BoardP1.goalUpdate(goal)
 					$BoardP2.goalUpdate(goal)
-			else:
+			elif(!$BoardP1.isFrozen()):
 				SoundController.playSound("res://Sound/wrong.mp3")
 				# Player frozen
 				$BoardP1.freeze(1)
@@ -48,9 +50,10 @@ func accept(board):
 					lose()
 				else:
 					generateGoal()
+					$Fail._failLeft()
 					$BoardP1.goalUpdate(goal)
 					$BoardP2.goalUpdate(goal)
-			else:
+			elif (!$BoardP2.isFrozen()):
 				SoundController.playSound("res://Sound/wrong.mp3")
 				# Player frozen
 				$BoardP2.freeze(1)
@@ -62,6 +65,16 @@ func accept(board):
 func _process(delta):
 	if(readyP1 == 1 && readyP2 == 1 && state == 0):
 		check_input()
+	else:
+		if (Input.is_action_just_pressed("p1_accept")):
+			_on_ReadyP1_pressed()
+		elif (Input.is_action_just_pressed("p2_accept")):
+			_on_ReadyP2_pressed()
+		elif (Input.is_action_just_pressed("p1_up")):
+			_on_ShuffleP1_pressed()
+		elif (Input.is_action_just_pressed("p2_up")):
+			_on_ShuffleP2_pressed()
+			
 		
 func check_input():
 	if (Input.is_action_just_pressed("p1_right")):
@@ -107,13 +120,44 @@ func _on_ShuffleP2_pressed():
 
 
 func _on_ReadyP1_pressed():
-	readyP1 = 1
 	$ReadyP1.disabled = true
-	
+	$ShuffleP1.visible = false
+	if (readyP2 == 1):
+		SoundController.playSound("res://Sound/gong.mp3")
+		var t = Timer.new()
+		t.set_wait_time(1)
+		t.set_one_shot(true)
+		self.add_child(t)
+		t.start()
+		yield(t, "timeout")
+		t.queue_free()
+		$ReadyP1.visible = false
+		$ReadyP2.visible = false
+		SoundController.volumeMusic(-10)
+	else:
+		SoundController.playSound("res://Sound/correct.mp3")
+	readyP1 = 1
 	
 func _on_ReadyP2_pressed():
-	readyP2 = 1
 	$ReadyP2.disabled = true
+	$ShuffleP2.visible = false
+	if (readyP1 == 1):
+		SoundController.playSound("res://Sound/gong.mp3")
+		var t = Timer.new()
+		t.set_wait_time(1)
+		t.set_one_shot(true)
+		self.add_child(t)
+		t.start()
+		yield(t, "timeout")
+		t.queue_free()
+		$ReadyP1.visible = false
+		$ReadyP2.visible = false
+		SoundController.volumeMusic(-10)
+	else:
+		SoundController.playSound("res://Sound/correct.mp3")
+	readyP2 = 1
+		
+	
 	
 func lose():
 	state = 1

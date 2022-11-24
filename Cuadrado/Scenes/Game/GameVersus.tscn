@@ -43,7 +43,6 @@ margin_bottom = 695.0
 texture_normal = ExtResource( 6 )
 
 [node name="ShuffleP2" type="TextureButton" parent="."]
-visible = false
 margin_left = 1197.0
 margin_top = 642.0
 margin_right = 1250.0
