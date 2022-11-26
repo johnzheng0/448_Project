@@ -20,12 +20,16 @@ Aiden: a542f781@ku.edu <br />
   - [SAD](https://github.com/johnzheng0/448_Project/tree/main/Documents_AD/Software_Architecture_Document) (Software Architecture Document) <br />
   - [UCEA](https://github.com/johnzheng0/448_Project/tree/main/Documents_AD/Use-Case-Realization_Specification) (Use-Case-Realization Specification) <br />
 
+
+- Projects Measurements <br />
+  -  [ITPLN](https://github.com/johnzheng0/448_Project/tree/main/Documents_PM/Iteration_Plan) (Iteration Plan)<br />
+  
+  
 ```diff
 - Latest Heading =>
 ```
-
-- Projects Measurements <br />
-  -  [ITPLN](https://github.com/johnzheng0/448_Project/tree/main/Documents_PM/Iteration_Plan) <br />
+- Final Product
+  -  [BIN](https://github.com/johnzheng0/448_Project/tree/main/Cuadrado_Binary) (Binaries)<br />
 
 -----------------------------------------------------------------------------------------------------------------<br /> 
 
