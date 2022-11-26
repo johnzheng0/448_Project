@@ -1,6 +1,6 @@
 extends Node2D
 
-
+# Assign variables when nodes ready
 onready var ChickenNest = get_node("ChickenNest")
 onready var Points = get_node("Points")
 onready var TimerNode = get_node("Timer")
@@ -10,19 +10,26 @@ onready var LoseScreen = get_node("LoseScreen")
 # Random Number Generator
 var random = RandomNumberGenerator.new()
 
+# Read in dificulty from disk
 var difficulty = int(Global.read("DIFF"))
+
+# intiialize points as 0
 var points = 0
 
+# initialize goal as a string of nothing
 var goal = ""
 
+# initialize state as 0, meaning unfrozen
+var state = 0
 
 func _ready():
+	# Start Music
 	SoundController.playMusic("res://Sound/musicGame.mp3")
+	
+	# Initialize game and game properties
 	generateGoal() 
 	$Board.goalUpdate(goal)
 	TimerNode._change_state(difficulty)
-
-var state = 0
 
 # Check for input every frame
 func _process(delta):
@@ -45,6 +52,7 @@ func check_input():
 	elif (Input.is_action_just_pressed("ui_accept")):
 		var win = $Board.checkWinCondition(goal[0], goal[1])
 		if(win):
+			# Process for winning
 			SoundController.playSound("res://Sound/correct.mp3")
 			points += 1
 			Points._update_point(points)
@@ -53,8 +61,11 @@ func check_input():
 			$Board.goalUpdate(goal)
 			TimerNode._reset_timer()
 		else:
+			# Process for failure to win
 			SoundController.playSound("res://Sound/wrong.mp3")
 			Fail._fail()
+	elif (Input.is_action_just_pressed("ui_escape")):
+		pause()
 	
 	
 # Function to generate goal
@@ -76,7 +87,19 @@ func generateGoal():
 			letter = 'E'
 	goal = str(number) + letter
 	
+# Function that handles losing
 func lose():
 	state = 1
 	LoseScreen.visible = true
 	
+# Function that handles pausing
+func pause():
+	state = 1
+	TimerNode._stop_timer()
+	$PauseScreen.visible = true
+
+# Function that handles unpausing
+func unpause():
+	state = 0
+	TimerNode._start_timer()
+	$PauseScreen.visible = false

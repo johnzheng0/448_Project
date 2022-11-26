@@ -97,6 +97,9 @@ func check_input():
 		accept(0) #passes player 1's board
 	elif (Input.is_action_just_pressed("p2_accept")):
 		accept(1) #passes player 2's board
+	elif (Input.is_action_just_pressed("ui_escape")):
+		pause()
+
 
 # Function to generate new goal
 func generateGoal():
@@ -158,7 +161,17 @@ func _on_ReadyP2_pressed():
 	readyP2 = 1
 		
 	
-	
+# Function that handles losing
 func lose():
 	state = 1
 	$LoseScreen.visible = true
+	
+# Function that handles pausing
+func pause():
+	state = 1
+	$PauseScreen.visible = true
+
+# Function that handles unpausing
+func unpause():
+	state = 0
+	$PauseScreen.visible = false

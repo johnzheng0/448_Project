@@ -1,8 +1,10 @@
 extends Node2D
 
+# Pixel distance from one point of tile to the next
 export (int) var x_off = 90
 export (int) var y_off = 90
 
+# Create random number generator
 var random = RandomNumberGenerator.new()
 
 # Load images onto tiles
@@ -111,6 +113,7 @@ func freeze(n=0):
 func isFrozen():
 	return (freeze == 1)
 
+# Function that rearranges 
 func rearrange():
 	for i in range(1000):
 		random.randomize()
@@ -128,6 +131,7 @@ func rearrange():
 		level_grid[x1][y1] = target
 	draw_level()
 
+# Update Chicken Nest Goal
 func goalUpdate(goal):
 	$ChickenNest._change_goal(goal)
 

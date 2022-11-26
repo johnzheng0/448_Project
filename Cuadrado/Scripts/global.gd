@@ -1,11 +1,13 @@
 extends Node
 
+# Function to write to disk a filename and its content
 func write(fileName,content):
 	var file = File.new()
 	file.open("user://"+fileName, File.WRITE)
 	file.store_string(content)
 	file.close()
 	
+# Function to read a filename from disk
 func read(fileName):
 	var file = File.new()
 	file.open("user://"+fileName, File.READ)
@@ -13,6 +15,7 @@ func read(fileName):
 	file.close()
 	return content
 
+# Makes sure tha there are files that exist on Disk to read from properly
 func _ready():
 	var file = File.new()
 	if !(file.file_exists("user://SFX")):
