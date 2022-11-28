@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	SoundController.volumeMusic(-10)
 	SoundController.playMusic("res://Sound/musicMainMenu.mp3")
 
 # Clicking on newgame will start the singleplayer gamemode
