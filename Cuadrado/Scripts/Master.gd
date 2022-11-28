@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	SoundController.playMusic("res://Sound/musicMainMenu.mp3")
+
 # Clicking on newgame will start the singleplayer gamemode
 func _on_button_newgame_pressed():
 	SoundController.playSound("res://Sound/click.mp3")
