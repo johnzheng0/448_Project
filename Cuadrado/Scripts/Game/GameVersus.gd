@@ -65,17 +65,16 @@ func accept(board):
 func _process(delta):
 	if(readyP1 == 1 && readyP2 == 1 && state == 0):
 		check_input()
-	else:
-		if (state == 0):
-			if (Input.is_action_just_pressed("p1_accept")):
-				_on_ReadyP1_pressed()
-			elif (Input.is_action_just_pressed("p2_accept")):
-				_on_ReadyP2_pressed()
-			elif (Input.is_action_just_pressed("p1_up")):
-				_on_ShuffleP1_pressed()
-			elif (Input.is_action_just_pressed("p2_up")):
-				_on_ShuffleP2_pressed()
-		if (Input.is_action_just_pressed("ui_escape")):
+	elif (state == 0):
+		if (Input.is_action_just_pressed("p1_accept")):
+			_on_ReadyP1_pressed()
+		elif (Input.is_action_just_pressed("p2_accept")):
+			_on_ReadyP2_pressed()
+		elif (Input.is_action_just_pressed("p1_shuffle")):
+			_on_ShuffleP1_pressed()
+		elif (Input.is_action_just_pressed("p2_shuffle")):
+			_on_ShuffleP2_pressed()
+		elif (Input.is_action_just_pressed("ui_escape")):
 			pause()
 			
 		
@@ -100,6 +99,8 @@ func check_input():
 		accept(0) #passes player 1's board
 	elif (Input.is_action_just_pressed("p2_accept")):
 		accept(1) #passes player 2's board
+	if (Input.is_action_just_pressed("ui_escape")):
+		pause()
 
 
 # Function to generate new goal
@@ -126,6 +127,7 @@ func _on_ShuffleP2_pressed():
 func _on_ReadyP1_pressed():
 	$ReadyP1.disabled = true
 	$ShuffleP1.visible = false
+	readyP1 = 1
 	if (readyP2 == 1):
 		SoundController.playSound("res://Sound/gong.mp3")
 		var t = Timer.new()
@@ -140,11 +142,11 @@ func _on_ReadyP1_pressed():
 		SoundController.volumeMusic(-10)
 	else:
 		SoundController.playSound("res://Sound/correct.mp3")
-	readyP1 = 1
 	
 func _on_ReadyP2_pressed():
 	$ReadyP2.disabled = true
 	$ShuffleP2.visible = false
+	readyP2 = 1
 	if (readyP1 == 1):
 		SoundController.playSound("res://Sound/gong.mp3")
 		var t = Timer.new()
@@ -159,7 +161,6 @@ func _on_ReadyP2_pressed():
 		SoundController.volumeMusic(-10)
 	else:
 		SoundController.playSound("res://Sound/correct.mp3")
-	readyP2 = 1
 		
 	
 # Function that handles losing
