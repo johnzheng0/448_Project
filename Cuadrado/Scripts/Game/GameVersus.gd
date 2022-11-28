@@ -66,14 +66,17 @@ func _process(delta):
 	if(readyP1 == 1 && readyP2 == 1 && state == 0):
 		check_input()
 	else:
-		if (Input.is_action_just_pressed("p1_accept")):
-			_on_ReadyP1_pressed()
-		elif (Input.is_action_just_pressed("p2_accept")):
-			_on_ReadyP2_pressed()
-		elif (Input.is_action_just_pressed("p1_up")):
-			_on_ShuffleP1_pressed()
-		elif (Input.is_action_just_pressed("p2_up")):
-			_on_ShuffleP2_pressed()
+		if (state == 0):
+			if (Input.is_action_just_pressed("p1_accept")):
+				_on_ReadyP1_pressed()
+			elif (Input.is_action_just_pressed("p2_accept")):
+				_on_ReadyP2_pressed()
+			elif (Input.is_action_just_pressed("p1_up")):
+				_on_ShuffleP1_pressed()
+			elif (Input.is_action_just_pressed("p2_up")):
+				_on_ShuffleP2_pressed()
+		if (Input.is_action_just_pressed("ui_escape")):
+			pause()
 			
 		
 func check_input():
@@ -97,8 +100,6 @@ func check_input():
 		accept(0) #passes player 1's board
 	elif (Input.is_action_just_pressed("p2_accept")):
 		accept(1) #passes player 2's board
-	elif (Input.is_action_just_pressed("ui_escape")):
-		pause()
 
 
 # Function to generate new goal
