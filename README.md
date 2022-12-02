@@ -29,7 +29,7 @@ Aiden: a542f781@ku.edu <br />
 - Latest Heading =>
 ```
 - Final Product
-  -  [BIN](https://github.com/johnzheng0/448_Project/tree/main/Cuadrado_Binary) (Binaries)<br />
+  -  [BIN](https://github.com/johnzheng0/448_Project/tree/main/Cuadrado_Binary) (Binaries) !!.pck file is needed to run the game<br />
 
 -----------------------------------------------------------------------------------------------------------------<br /> 
 
