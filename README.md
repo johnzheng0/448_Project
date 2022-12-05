@@ -32,7 +32,7 @@ Aiden: a542f781@ku.edu <br />
 - Latest Heading =>
 ```
 - Recorded Presentation
-  -  [VID](https://github.com/johnzheng0/448_Project/tree/main/6.%20Recorded%20Presentation) (Recorded Presentation)<br />
+  -  [VIDEO](https://github.com/johnzheng0/448_Project/tree/main/6.%20Recorded%20Presentation) (Recorded Presentation)<br />
 
 -----------------------------------------------------------------------------------------------------------------<br /> 
 
